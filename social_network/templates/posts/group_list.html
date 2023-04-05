@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load thumbnail %}
+
+{% block title %}
+  Здесь будет информация о группах проекта Yatube
+{% endblock %}
+
+{% block content %}
+  <div class="container py-4">
+    <h1>{{ group.title }}</h1>
+    <p>{{ group.description }}</p>
+    {% for post in page_obj %}
+      {% include 'posts/posts_list.html' with profile_link_flag=True author_link=True %}
+    {% endfor %}
+    {% include 'includes/paginator.html' %}
+  </div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Лента автора{% endblock %}
+{% block content %}
+  <div class="container py-4">
+    {% include 'includes/swither.html' with follow=True %}
+    {% for post in page_obj %}
+      {% include 'posts/posts_list.html' with profile_link_flag=True author_link=True %}
+    {% endfor %}
+    {% include 'includes/paginator.html' %}
+  </div>
+{% endblock content %}
